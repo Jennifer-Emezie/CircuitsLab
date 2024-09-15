@@ -1,0 +1,42 @@
+|lab4task1_top
+KEY[1] => _.IN1
+KEY[0] => _.IN1
+HEX0[0] << hexto7seg:SEG0.out
+HEX0[1] << hexto7seg:SEG0.out
+HEX0[2] << hexto7seg:SEG0.out
+HEX0[3] << hexto7seg:SEG0.out
+HEX0[4] << hexto7seg:SEG0.out
+HEX0[5] << hexto7seg:SEG0.out
+HEX0[6] << hexto7seg:SEG0.out
+
+
+|lab4task1_top|counter:CTR
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+en => Add0.IN4
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4task1_top|hexto7seg:SEG0
+out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+
+

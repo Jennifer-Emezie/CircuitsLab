@@ -1,0 +1,22 @@
+module pwm # (parameter WIDTH = 10)(
+	input logic 					clk,
+	input logic [WIDTH-1:0]		data_in,
+	input logic						load,
+	input logic [WIDTH-1:0]		max,
+	output logic 					pwm_out
+);
+
+	logic [WIDTH-1:0]			d;
+	logic [WIDTH-1:0] 		count;
+	
+	always_ff @(posedge clk) begin
+		if (count == max) 
+			count <= {WIDTH{1'b0}};
+		else 
+			count <= count + 1'b1;
+		if (count >= d) 
+			pwm_out <= 1'b0;
+		else 
+			pwm_out <= 1'b1;
+		end 
+endmodule
